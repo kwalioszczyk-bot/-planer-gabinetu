@@ -15,34 +15,36 @@ const KLIN = (() => {
 
 /* ---------- skale ---------- */
 const PHQ9 = {
-  name: 'PHQ-9', intro: 'W ciągu ostatnich 2 tygodni, jak często dokuczały Pani/Panu następujące problemy?',
-  opts: ['wcale nie', 'kilka dni', 'więcej niż połowę dni', 'niemal codziennie'],
+  name: 'PHQ-9', intro: 'Jak często w ciągu ostatnich 2 tygodni dokuczały Panu/Pani następujące problemy?',
+  opts: ['wcale nie dokuczały', 'kilka dni', 'więcej niż połowę dni', 'niemal codziennie'],
   items: [
     'Niewielkie zainteresowanie lub odczuwanie przyjemności z wykonywania czynności',
     'Uczucie smutku, przygnębienia lub beznadziejności',
-    'Kłopoty z zaśnięciem, przerywany sen albo zbyt długi sen',
+    'Kłopoty z zaśnięciem lub przerywany sen, albo zbyt długi sen',
     'Uczucie zmęczenia lub brak energii',
-    'Brak apetytu albo przejadanie się',
-    'Poczucie niezadowolenia z siebie, że jest się do niczego, albo że zawiodło się siebie lub rodzinę',
-    'Problemy ze skupieniem się, np. przy czytaniu lub oglądaniu telewizji',
-    'Spowolnienie ruchów lub mowy zauważalne dla innych albo przeciwnie – niepokój i ruchliwość większa niż zwykle',
-    'Myśli, że lepiej byłoby umrzeć, albo chęć zrobienia sobie krzywdy'
+    'Brak apetytu lub przejadanie się',
+    'Poczucie niezadowolenia z siebie — lub uczucie, że jest się do niczego, albo że zawiódł/zawiodła Pan/Pani siebie lub rodzinę',
+    'Problemy ze skupieniem się na przykład przy czytaniu gazety lub oglądaniu telewizji',
+    'Poruszanie się lub mówienie tak wolno, że inni mogliby to zauważyć? Albo wręcz przeciwnie — niemożność usiedzenia w miejscu lub podenerwowanie powodujące ruchliwość znacznie większą niż zwykle',
+    'Myśli, że lepiej byłoby umrzeć, albo chęć zrobienia sobie jakiejś krzywdy'
   ],
-  bands: [[0, 'minimalne'], [5, 'łagodne'], [10, 'umiarkowane'], [15, 'umiarkowanie ciężkie'], [20, 'ciężkie']]
+  bands: [[0, 'minimalne'], [5, 'łagodne'], [10, 'umiarkowane'], [15, 'umiarkowanie ciężkie'], [20, 'ciężkie']],
+  src: 'Polska wersja PHQ-9 (Kokoszka, Jastrzębski, Obrębski, Psychiatria 2016;13(4):187–193). Opracowanie: R.L. Spitzer, J.B.W. Williams, K. Kroenke i wsp., grant Pfizer Inc.'
 };
 const GAD7 = {
-  name: 'GAD-7', intro: 'W ciągu ostatnich 2 tygodni, jak często dokuczały Pani/Panu następujące problemy?',
+  name: 'GAD-7', intro: 'Jak często w ciągu ostatnich 2 tygodni dokuczały Panu(i) następujące problemy?',
   opts: PHQ9.opts,
   items: [
-    'Uczucie zdenerwowania, niepokoju lub podenerwowania',
-    'Niemożność powstrzymania lub kontrolowania martwienia się',
-    'Nadmierne zamartwianie się różnymi sprawami',
-    'Trudności z odprężeniem się',
-    'Niepokój tak duży, że trudno usiedzieć w miejscu',
-    'Łatwe denerwowanie się lub rozdrażnienie',
-    'Uczucie lęku, jakby miało się wydarzyć coś okropnego'
+    'Czuł(a) się Pan(i) podenerwowany(a), niespokojny(a), mocno spięty(a)',
+    'Nie mógł(a) Pan(i) przestać się martwić albo zapanować nad tym',
+    'Za bardzo się Pan(i) martwił(a) różnymi rzeczami',
+    'Miał(a) Pan(i) trudności z relaksowaniem się',
+    'Był(a) Pan(i) tak niespokojny(a), że nie mógł(a) usiedzieć na miejscu',
+    'Łatwo stawał(a) się Pan(i) rozdrażniony(a) lub poirytowany(a)',
+    'Obawiał(a) się Pan(i), tak jakby miało się stać coś strasznego'
   ],
-  bands: [[0, 'minimalne'], [5, 'łagodne'], [10, 'umiarkowane'], [15, 'ciężkie']]
+  bands: [[0, 'minimalne'], [5, 'łagodne'], [10, 'umiarkowane'], [15, 'ciężkie']],
+  src: 'Polska wersja GAD-7. Opracowanie: R.L. Spitzer, J.B.W. Williams, K. Kroenke i wsp., grant Pfizer Inc. Zgoda na powielanie nie jest wymagana.'
 };
 const band = (sc, s) => { let r = sc.bands[0][1]; for (const [min, t] of sc.bands) if (s >= min) r = t; return r };
 

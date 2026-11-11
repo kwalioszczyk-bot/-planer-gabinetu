@@ -1079,7 +1079,7 @@ function fieldHtml([id,label,type,opts],a){
   if(type==='num')return `<label>${esc(label)}</label><input type="number" value="${esc(a[id])}" data-bind="ik:${id}" style="max-width:140px">`;
   if(type==='sel')return `<label>${esc(label)}</label><select data-bind="ik:${id}"><option value="">—</option>${opts.map(o=>`<option ${a[id]===o?'selected':''}>${esc(o)}</option>`).join('')}</select>`;
   if(type==='phq'||type==='gad'){const sc=type==='phq'?KLIN.PHQ9:KLIN.GAD7;
-    return `<p class="small">${esc(sc.intro)} <span class="muted">(0 – ${esc(sc.opts[0])}, 1 – ${esc(sc.opts[1])}, 2 – ${esc(sc.opts[2])}, 3 – ${esc(sc.opts[3])})</span></p><table class="scale">${sc.items.map((it,i)=>`<tr><td>${i+1}. ${esc(it)}</td><td><select data-bind="ik:${type}_${i}"><option value="">–</option>${[0,1,2,3].map(v=>`<option value="${v}" ${String(a[type+'_'+i])===String(v)?'selected':''}>${v}</option>`).join('')}</select></td></tr>`).join('')}</table>`}
+    return `<p class="small">${esc(sc.intro)} <span class="muted">(0 – ${esc(sc.opts[0])}, 1 – ${esc(sc.opts[1])}, 2 – ${esc(sc.opts[2])}, 3 – ${esc(sc.opts[3])})</span></p><table class="scale">${sc.items.map((it,i)=>`<tr><td>${i+1}. ${esc(it)}</td><td><select data-bind="ik:${type}_${i}"><option value="">–</option>${[0,1,2,3].map(v=>`<option value="${v}" ${String(a[type+'_'+i])===String(v)?'selected':''}>${v}</option>`).join('')}</select></td></tr>`).join('')}</table><p class="small muted" style="font-size:12px">${esc(sc.src||'')}</p>`}
   return ''}
 function vIntake(p){const I=ensureIntake(p);const T=KLIN.TEMPLATES[I.tpl];
   const secs=T.sections.map(sec=>{const chk=sec.f.filter(f=>f[2]==='chk'),oth=sec.f.filter(f=>f[2]!=='chk');
